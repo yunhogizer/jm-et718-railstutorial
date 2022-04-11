@@ -1,0 +1,52 @@
+<style>
+      table {
+        border-collapse: separate;
+        border-spacing: 10px;
+      }
+      table,
+      th,
+      td {
+        border: 2px solid white;
+        text-align: center;
+      }
+      th {
+        color: #426c96;
+        padding: 10px;
+        border: 1px solid #a9bed4;
+        border-radius: 10px;
+      }
+      td {
+        padding: 20px;
+        border: 1px solid #dbdbdb;
+        border-radius: 10px;
+      }
+      h1 {
+        color: #426c96;
+      }
+      .links, .article_titles {
+        font-weight:bold;
+      }
+      .links:hover{
+        background-color:#426c96;
+      }
+</style>
+<h1>Your Posts</h1>
+
+<%= link_to 'New Article ↲', new_article_path %>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th></th>
+    </tr>
+    
+    <% @articles.each do |article| %>
+        <tr>
+            <td class = "article_titles"><%= article.title %></td>
+            <td><%= article.text %></td>
+            <td class = "links"><%= link_to 'Show', article_path(article) %></td>
+            <td class = "links"><%= link_to 'Edit', edit_article_path(article) %></td>
+        </tr>
+    <% end %>
+</table>
